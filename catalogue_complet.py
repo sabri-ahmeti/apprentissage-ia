@@ -18,3 +18,13 @@ for produit in catalogue:
         print("   >>> ALERTE : à commander !")
 
 print("=== FIN ===")
+
+# --- AMÉLIORATION : calculs sur tout le catalogue en une ligne ---
+
+# Valeur totale du stock (prix × quantité pour chaque produit, puis on additionne)
+valeur_totale = sum([produit["prix"] * produit["stock"] for produit in catalogue])
+print("\nValeur totale du stock :", round(valeur_totale, 2), "CHF")
+
+# La liste des produits à commander (ceux sous le seuil)
+tous_les_produits = [produit["nom"] for produit in catalogue]
+print("Produits à commander :", tous_les_produits)
